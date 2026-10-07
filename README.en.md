@@ -113,34 +113,6 @@ You only call the `/deck-review` skill once. After every review round, just repe
 Apply the feedback and update it
 ```
 
-You can also ask for things like:
-
-- “Install the review tools in English; the reviewers are US investors”
-- “Export this deck to PDF and check for overflowing text”
-
-Or run the scripts yourself:
-
-```bash
-S=skills/deck-review/scripts
-
-# 1) Install the shell on an existing deck (writes a new version file; safe to re-run)
-python $S/apply_shell.py examples/sample-deck.html -o examples/sample-deck_v1.0.html --deck-id sample-deck --lang en
-#    add --no-lang-switch to hide the KO/EN switch
-
-# 2) Reviewers open v1.0, write notes and save → sample-deck_v1.0_feedback.json
-
-# 3) Build a work list from v1.0 feedback only (picks up the v1.0 JSON next to the deck; other versions are rejected)
-python $S/feedback_report.py examples/sample-deck_v1.0.html
-
-# 4) Copy v1.0 to sample-deck_v1.1.html, edit it, then refresh the shell → v1.1 with an empty panel
-python $S/apply_shell.py sample-deck_v1.1.html --in-place
-#    Reviewers write new notes on v1.1 and save them as sample-deck_v1.1_feedback.json
-
-# 5) Layout check and PDF
-python $S/check_deck.py sample-deck_v1.1.html
-python $S/export_pdf.py sample-deck_v1.1.html -o sample-deck_v1.1.pdf
-```
-
 ## Using it with your own deck
 
 The deck contract is short:

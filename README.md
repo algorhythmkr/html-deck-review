@@ -113,34 +113,6 @@ v1.0에 남긴 의견만 반영한 새 버전 **`IR_v1.1.html`** 이 만들어�
 피드백 반영해서 업데이트 해줘
 ```
 
-그 밖에 이런 요청도 할 수 있습니다.
-
-- “영어 검토자한테 보낼 거니까 피드백 창을 영어로 넣어줘”
-- “이 덱 PDF로 뽑고 넘치는 곳 있는지 검수해줘”
-
-스크립트를 직접 쓸 수도 있습니다.
-
-```bash
-S=skills/deck-review/scripts
-
-# 1) 기존 덱에 셸 설치 (새 버전 파일로 출력, 재실행 안전)
-python $S/apply_shell.py examples/sample-deck.html -o examples/sample-deck_v1.0.html --deck-id sample-deck
-#    영어로 시작하려면 --lang en, 전환 버튼을 숨기려면 --no-lang-switch
-
-# 2) 검토자가 v1.0을 열어 의견을 쓰고 저장 → sample-deck_v1.0_feedback.json
-
-# 3) v1.0 피드백만으로 수정 작업 목록 생성 (같은 폴더의 v1.0 JSON 자동 사용, 다른 버전 JSON은 거부)
-python $S/feedback_report.py examples/sample-deck_v1.0.html
-
-# 4) v1.0을 sample-deck_v1.1.html로 복사해 수정한 뒤 셸 갱신 → 피드백 창이 빈 v1.1
-python $S/apply_shell.py sample-deck_v1.1.html --in-place
-#    검토자는 v1.1에서 새로 의견을 쓰고 sample-deck_v1.1_feedback.json으로 저장
-
-# 5) 검수와 PDF
-python $S/check_deck.py sample-deck_v1.1.html
-python $S/export_pdf.py sample-deck_v1.1.html -o sample-deck_v1.1.pdf
-```
-
 ## 내 덱에 쓰려면
 
 덱이 지켜야 할 규약은 짧습니다.
