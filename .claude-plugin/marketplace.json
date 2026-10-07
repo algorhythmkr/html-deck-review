@@ -1,0 +1,13 @@
+{
+  "name": "html-deck-review",
+  "owner": {
+    "name": "Algorhythm"
+  },
+  "plugins": [
+    {
+      "name": "html-deck-review",
+      "source": "./",
+      "description": "Review tools for HTML pitch/IR decks you already have: per-slide feedback panel with click-to-select regions, version-scoped feedback JSON, and a workflow that applies that version's feedback to the next version. Korean/English UI. Does not create decks."
+    }
+  ]
+}

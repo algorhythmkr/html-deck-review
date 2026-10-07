@@ -1,0 +1,8 @@
+temp/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+examples/*.pdf
+examples/*_feedback.json
+*.swp

@@ -1,0 +1,94 @@
+/*! html-deck-review shell v1.2.0 | MIT */
+:root{--rv-brand:#2350a8;--rv-ink:#1f2430;--rv-muted:#6b7280;--rv-paper:#fbfbfd;--rv-line:#e3e6ec;--rv-soft:#eef2f8;--rv-deep:#1b2236;--rv-danger:#a31d37;--rv-bg:#e5e7ec;--rv-panel:420px;--rv-toolbar:66px;--rv-scale:1;--rv-w:1280px;--rv-h:720px;--rv-print-w:338.667mm;--rv-print-h:190.5mm;--rv-print-scale:1;--rv-print-top:0mm;--rv-print-left:0mm}
+html.rv-on,html.rv-on body{margin:0;min-height:100%;background:var(--rv-bg)}
+html.rv-on body{overflow:hidden}
+#rv-deck{position:fixed;inset:0 var(--rv-panel) var(--rv-toolbar) 0;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;z-index:1}
+.rv-sheet{position:relative;display:none;flex-shrink:0;width:calc(var(--rv-w) * var(--rv-scale));height:calc(var(--rv-h) * var(--rv-scale));box-shadow:0 12px 45px #1b223622;background:#fff}
+.rv-sheet.rv-active{display:block}
+html.rv-on .rv-sheet>*{position:absolute!important;left:0!important;top:0!important;margin:0!important;width:var(--rv-w)!important;height:var(--rv-h)!important;transform:scale(var(--rv-scale))!important;transform-origin:top left!important;overflow:hidden}
+html.rv-on .rv-legacy{display:contents!important}
+.rv-fb-hidden #rv-deck{right:0}
+.rv-overview #rv-deck{flex-direction:column;justify-content:flex-start;gap:24px;scroll-behavior:smooth}
+.rv-overview .rv-sheet{display:block;cursor:pointer}
+.rv-overview .rv-sheet.rv-active{outline:3px solid var(--rv-brand);outline-offset:5px}
+.rv-area:not(.rv-fb-hidden):not(.rv-overview) .rv-sheet>*{cursor:crosshair}
+.rv-picked{outline:3px solid #e07b2a!important;outline-offset:3px!important}
+
+/* shared control look (scoped to shell chrome only) */
+.rv-panel,.rv-controls,#rv-clearDialog,.rv-toast{font-family:system-ui,-apple-system,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--rv-ink);box-sizing:border-box}
+.rv-panel *,.rv-controls *,#rv-clearDialog *{box-sizing:border-box}
+.rv-panel button,.rv-panel select,.rv-controls button,.rv-controls select,#rv-clearDialog button{font:inherit;min-height:40px;border:1px solid #cfd4dd;background:#fff;color:var(--rv-ink);border-radius:6px;padding:8px 12px;font-size:14px;cursor:pointer}
+.rv-panel button:hover,.rv-controls button:hover,#rv-clearDialog button:hover{border-color:var(--rv-brand);background:var(--rv-soft)}
+.rv-panel button:disabled,.rv-controls button:disabled,#rv-clearDialog button:disabled{opacity:.4;cursor:default}
+.rv-panel .rv-primary,.rv-controls .rv-primary{background:var(--rv-brand);border-color:var(--rv-brand);color:#fff}
+.rv-panel .rv-primary:hover,.rv-controls .rv-primary:hover{background:var(--rv-brand);filter:brightness(1.1)}
+.rv-panel :focus-visible,.rv-controls :focus-visible,#rv-clearDialog :focus-visible{outline:3px solid var(--rv-brand);outline-offset:3px}
+.rv-danger{color:var(--rv-danger)!important;border-color:#d69aa6!important}
+button.rv-danger.rv-primary{background:var(--rv-danger)!important;border-color:var(--rv-danger)!important;color:#fff!important}
+
+/* feedback panel */
+.rv-panel{position:fixed;top:0;right:0;bottom:var(--rv-toolbar);width:var(--rv-panel);padding:26px 22px;background:var(--rv-paper);border-left:1px solid var(--rv-line);overflow-y:auto;z-index:3;font-size:14px}
+.rv-kicker{display:flex;justify-content:space-between;gap:12px;color:var(--rv-brand);font-size:13px;font-weight:700;letter-spacing:.5px}
+.rv-panel h1{font-size:22px;line-height:1.45;word-break:keep-all;margin:16px 0 12px;font-weight:700}
+.rv-hint{font-size:14px;line-height:1.7;color:var(--rv-muted);margin:0 0 18px}
+.rv-region{margin:0 0 16px;padding:12px 0;border-top:1px solid var(--rv-line);border-bottom:1px solid var(--rv-line)}
+.rv-region button{font-size:13px!important;margin:0 4px 6px 0}
+.rv-region p{font-size:12px;line-height:1.6;margin:4px 0;color:var(--rv-brand)}
+.rv-region .rv-region-hint{color:var(--rv-muted)}
+.rv-panel label{display:block;font-size:15px;font-weight:700;margin-bottom:10px}
+.rv-panel textarea{width:100%;height:300px;min-height:180px;max-height:65vh;resize:vertical;border:1px solid #c9cfd9;border-radius:6px;background:#fff;padding:12px;font:inherit;font-size:15px;line-height:1.65;color:var(--rv-ink)}
+.rv-save-row{display:flex;gap:8px;margin:12px 0}
+.rv-save-row button:first-child{flex:1}
+.rv-status{font-size:13px;color:var(--rv-brand);line-height:1.6;min-height:44px;margin:10px 0 16px}
+.rv-actions{display:flex;flex-wrap:wrap;gap:8px;border-top:1px solid var(--rv-line);padding-top:16px}
+.rv-actions button{font-size:13px!important;padding:8px 10px!important}
+.rv-count{display:block;width:100%;margin:8px 0;color:var(--rv-muted);font-size:13px}
+.rv-list{display:flex;flex-wrap:wrap;gap:6px}
+.rv-list button{min-height:32px!important;padding:5px 10px!important;color:var(--rv-brand)!important;font-weight:700}
+.rv-file{font-size:12px;line-height:1.65;color:var(--rv-muted);overflow-wrap:anywhere;margin:16px 0}
+.rv-panel details{border-top:1px solid var(--rv-line);padding:14px 0;font-size:13px;line-height:1.7}
+.rv-panel summary{cursor:pointer;font-weight:700}
+.rv-panel details p{margin:12px 0}
+.rv-panel details a{display:block;margin:10px 0;color:var(--rv-brand)}
+.rv-fb-hidden .rv-panel{display:none}
+
+/* bottom toolbar */
+.rv-controls{position:fixed;left:0;right:0;bottom:0;background:#fffffff2;border-top:1px solid var(--rv-line);z-index:10;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;padding:12px 18px}
+.rv-controls select{width:230px;max-width:30vw}
+#rv-counter{min-width:58px;text-align:center;font-size:14px;font-variant-numeric:tabular-nums}
+.rv-sep{width:1px;height:25px;background:var(--rv-line);margin:0 3px}
+.rv-print-note{font-size:13px;color:var(--rv-muted)}
+
+/* dialog, toast, a11y */
+#rv-clearDialog{width:min(510px,92vw);border:1px solid var(--rv-line);border-radius:12px;padding:25px;background:var(--rv-paper);box-shadow:0 14px 60px #1b223640}
+#rv-clearDialog::backdrop{background:#1b223680}
+#rv-clearDialog h2{font-size:21px;margin:0 0 16px}
+#rv-clearDialog p{font-size:15px;line-height:1.65}
+#rv-clearNote{background:var(--rv-soft);padding:12px;border-radius:6px}
+#rv-clearError{color:var(--rv-danger);min-height:24px}
+.rv-dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.rv-toast{position:fixed;bottom:calc(var(--rv-toolbar) + 14px);left:24px;max-width:calc(100vw - 48px);padding:13px 18px;background:var(--rv-deep);color:#fff;border-radius:6px;z-index:20;font-size:14px;line-height:1.6;box-shadow:0 5px 24px #1b223633}
+.rv-toast:empty{display:none}
+.rv-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+@media(max-width:900px){
+  #rv-deck{right:0;padding:14px}
+  .rv-panel{width:min(420px,92vw);box-shadow:-10px 0 35px #1b223625}
+  .rv-controls{gap:6px;padding:9px}
+  .rv-controls button,.rv-controls select{font-size:13px;padding:7px 9px;min-height:36px}
+  .rv-controls select{width:170px;max-width:43vw}
+  .rv-sep,.rv-print-note{display:none}
+  .rv-panel textarea{height:240px}
+  .rv-toast{left:12px;max-width:calc(100vw - 24px)}
+}
+
+/* print / PDF: one slide per page, chrome hidden */
+@media print{
+  html.rv-on,html.rv-on body{background:#fff!important;width:var(--rv-print-w);height:auto!important;overflow:visible!important;margin:0!important;padding:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .rv-panel,.rv-controls,.rv-toast,.rv-sr,#rv-clearDialog{display:none!important}
+  #rv-deck{position:static!important;inset:auto!important;display:block!important;width:var(--rv-print-w)!important;height:auto!important;overflow:visible!important;padding:0!important;margin:0!important}
+  .rv-sheet,.rv-overview .rv-sheet{display:block!important;width:var(--rv-print-w)!important;height:var(--rv-print-h)!important;margin:0!important;box-shadow:none!important;outline:none!important;break-after:page;page-break-after:always;overflow:hidden!important;position:relative!important}
+  .rv-sheet:last-child{break-after:auto;page-break-after:auto}
+  html.rv-on .rv-sheet>*{top:var(--rv-print-top)!important;left:var(--rv-print-left)!important;transform:scale(var(--rv-print-scale))!important}
+  .rv-picked{outline:none!important}
+}
