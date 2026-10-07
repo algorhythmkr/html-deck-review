@@ -1,4 +1,4 @@
-/*! html-deck-review shell v1.3.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin Cho <contact@algorhythm.kr>
+/*! html-deck-review shell v1.3.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin <contact@algorhythm.kr>
  * HTML slide deck viewer: per-slide feedback panel, region picker,
  * bottom toolbar (prev/next, jump, overview, fullscreen, print/PDF).
  * Reads <script type="application/json" id="deck-review-config">.
