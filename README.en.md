@@ -152,7 +152,7 @@ examples/                  a deck without the shell, and the installed result
 
 ## Author and copyright
 
-- Author: Jaemin Cho
+- Author: Jaemin
 - Copyright: © 2026 Algorhythm Inc.
 - Contact: [contact@algorhythm.kr](mailto:contact@algorhythm.kr)
 
