@@ -142,6 +142,12 @@ skills/deck-review/
 examples/                  a deck without the shell, and the installed result
 ```
 
+## Author and copyright
+
+- Author: Jaemin Cho
+- Copyright: © 2026 Algorhythm Inc.
+- Contact: [contact@algorhythm.kr](mailto:contact@algorhythm.kr)
+
 ## License
 
-MIT
+MIT License. See [LICENSE](LICENSE) for the full text.

@@ -140,6 +140,12 @@ skills/deck-review/
 examples/                  셸 없는 원본과 설치 결과
 ```
 
+## 만든 사람과 저작권
+
+- 만든 사람: Jaemin Cho (조재민)
+- 저작권: © 2026 Algorhythm Inc.
+- 문의: [contact@algorhythm.kr](mailto:contact@algorhythm.kr)
+
 ## 라이선스
 
-MIT
+MIT License. 전문은 [LICENSE](LICENSE)를 참고하세요.

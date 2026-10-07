@@ -3,7 +3,9 @@
   "version": "1.2.0",
   "description": "Review tools for HTML pitch/IR decks you already have: per-slide feedback panel with click-to-select regions, version-scoped feedback JSON, and a workflow that applies that version's feedback to the next version. Korean/English UI. Does not create decks.",
   "author": {
-    "name": "Algorhythm"
+    "name": "Jaemin Cho",
+    "email": "contact@algorhythm.kr",
+    "url": "https://github.com/algorhythmkr"
   },
   "license": "MIT",
   "keywords": [
@@ -14,5 +16,7 @@
     "html-slides",
     "review",
     "pdf"
-  ]
+  ],
+  "homepage": "https://github.com/algorhythmkr/html-deck-review",
+  "repository": "https://github.com/algorhythmkr/html-deck-review"
 }
