@@ -47,9 +47,21 @@ deck_v1.0.html ──review──▶ deck_v1.0_feedback.json ──apply──�
 | Toolbar | ← → · jump to slide · overview · fullscreen (F) · print/PDF (16:9 or A4, borderless vector) · show/hide feedback · language switch |
 | Korean / English | The review tools come in Korean and English. Reviewers can switch with the `EN` / `한국어` button in the toolbar |
 | Layout check | Headless Chrome finds elements that spill outside a slide and text that gets clipped |
-| PDF | Produces the same output as the on-screen print button, from the command line |
+| Save as PDF | Click **Print / PDF** in the toolbar to turn the HTML deck into a PDF file. Each slide becomes one borderless page, with text and charts kept as vectors. See [Saving as PDF](#saving-as-pdf) below |
 
 The deck stays a single HTML file, and feedback lives only in the reviewer's browser and the JSON file. Nothing is sent to any server.
+
+## Saving as PDF
+
+1. Click **Print / PDF** in the toolbar.
+2. In the guide that appears, click **Open print dialog**.
+3. In the browser's print dialog, set **Destination (printer)** to **“Save as PDF”**. This step is required.
+4. Click **Save** to create the PDF file.
+
+> **The PDF only comes out right with “Save as PDF”.**
+> Other printers, such as Microsoft Print to PDF or third-party PDF printers, change the page size and margins, so slides get cut off or shifted.
+
+A web page cannot change the default printer of the browser's print dialog, so the deck shows a short guide asking you to pick “Save as PDF” before the dialog opens. Chrome and Edge remember “Save as PDF” once you have chosen it, so you only need to switch it the first time. You can turn the guide off with “Don’t show this again”.
 
 ## Language
 

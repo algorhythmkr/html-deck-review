@@ -18,7 +18,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ASSETS = HERE.parent / "assets"
-SHELL_VERSION = "1.2.0"
+SHELL_VERSION = "1.3.0"
 
 
 def block(name, body):

@@ -1,4 +1,4 @@
-/*! html-deck-review shell v1.2.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin Cho <contact@algorhythm.kr>
+/*! html-deck-review shell v1.3.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin Cho <contact@algorhythm.kr>
  * HTML slide deck viewer: per-slide feedback panel, region picker,
  * bottom toolbar (prev/next, jump, overview, fullscreen, print/PDF).
  * Reads <script type="application/json" id="deck-review-config">.
@@ -64,7 +64,9 @@
       clearedFile: '모든 피드백 삭제 완료 · JSON 파일에 반영했습니다.', clearedLocal: '브라우저 피드백 삭제 완료 · 내려받은 빈 JSON으로 기존 파일을 교체하세요.',
       toastClearedBoth: '모든 피드백을 JSON과 브라우저에서 삭제했습니다.', toastClearedFile: 'JSON에서 삭제했습니다. 브라우저 저장이 불가하므로 다시 열 때 이 JSON을 불러오세요.', toastClearedDl: '빈 JSON 다운로드를 요청했습니다. 기존 JSON을 직접 교체해야 파일 삭제도 완료됩니다.',
       copied: '영역 정보를 클립보드에 복사했습니다. 피드백 칸에 붙여넣으세요.', copyFail: '클립보드 복사에 실패했습니다. ‘선택 영역 복사’를 눌러 다시 시도하세요.',
-      printToast: '인쇄 창에서 대상을 “PDF로 저장”으로 고르세요. 여백 없는 벡터 PDF로 저장됩니다.', noFull: '이 브라우저에서 전체 화면을 지원하지 않습니다.', noStorage: '브라우저 저장 공간을 쓸 수 없습니다. JSON 파일로 피드백을 저장해 주세요.',
+      printToast: '인쇄 창에서 대상을 “PDF로 저장”으로 고르세요. 여백 없는 벡터 PDF로 저장됩니다.',
+      pdfTitle: 'HTML을 PDF 파일로 저장합니다', pdfOpen: '인쇄 창 열기', pdfSkip: '다음부터 이 안내를 보지 않기',
+      pdfBody: `<ol><li>다음 인쇄 창에서 <b>대상(프린터)</b>을 <b>“PDF로 저장”</b>으로 고르세요.</li><li><b>저장</b>을 누르면 슬라이드 한 장이 PDF 한 쪽으로, 여백 없이 저장됩니다. 글자와 도표는 벡터로 유지됩니다.</li></ol><p class="rv-warn">한컴PDF·Microsoft Print to PDF 같은 다른 프린터를 고르면 쪽 크기와 여백이 바뀌어 슬라이드가 잘리거나 밀립니다. 반드시 <b>“PDF로 저장”</b>을 고르세요.</p><p>웹 페이지는 인쇄 창의 기본 프린터를 바꿀 수 없습니다. Chrome·Edge는 한 번 “PDF로 저장”을 고르면 다음부터 그 선택을 기억합니다.</p>`, noFull: '이 브라우저에서 전체 화면을 지원하지 않습니다.', noStorage: '브라우저 저장 공간을 쓸 수 없습니다. JSON 파일로 피드백을 저장해 주세요.',
       announce: (n, t) => `슬라이드 ${n}: ${t}`, fileDesc: '발표자료 피드백',
       langBtn: 'EN', langTo: 'Switch the review tools to English',
       rgn: { head: '[수정할 영역]', ver: '자료 버전', slide: '슬라이드', id: '슬라이드 ID', sel: '영역 선택자', type: '종류', cur: '현재 내용', ctx: '주변 내용', pos: '원본 위치', w: '너비', h: '높이', ask: '수정 요청', img: '이미지', svg: '도표 요소', box: '텍스트/영역', txt: '텍스트', noAlt: '설명 없는 이미지', none: '내용 없는 영역' }
@@ -102,7 +104,9 @@
       clearedFile: 'All feedback deleted · JSON file updated.', clearedLocal: 'Browser feedback deleted · replace your old JSON with the downloaded empty one.',
       toastClearedBoth: 'All feedback deleted from the JSON and the browser.', toastClearedFile: 'Deleted from the JSON. Browser storage unavailable; import this JSON next time.', toastClearedDl: 'Empty JSON download requested. Replace the old JSON to finish.',
       copied: 'Region info copied. Paste it into the feedback box.', copyFail: 'Clipboard copy failed. Try “Copy selection”.',
-      printToast: 'In the print dialog choose “Save as PDF” for a borderless vector PDF.', noFull: 'Fullscreen is not supported in this browser.', noStorage: 'Browser storage is unavailable. Save feedback to a JSON file.',
+      printToast: 'In the print dialog choose “Save as PDF” for a borderless vector PDF.',
+      pdfTitle: 'Save this HTML deck as a PDF file', pdfOpen: 'Open print dialog', pdfSkip: 'Don’t show this again',
+      pdfBody: `<ol><li>In the print dialog that opens next, set <b>Destination (printer)</b> to <b>“Save as PDF”</b>.</li><li>Click <b>Save</b>. Each slide becomes one borderless PDF page, with text and charts kept as vectors.</li></ol><p class="rv-warn">Other printers such as Microsoft Print to PDF or third-party PDF printers change the page size and margins, so slides get cut off or shifted. Always choose <b>“Save as PDF”</b>.</p><p>A web page cannot change the print dialog's default printer. Chrome and Edge remember “Save as PDF” once you have chosen it.</p>`, noFull: 'Fullscreen is not supported in this browser.', noStorage: 'Browser storage is unavailable. Save feedback to a JSON file.',
       announce: (n, t) => `Slide ${n}: ${t}`, fileDesc: 'Deck feedback',
       langBtn: '한국어', langTo: '검토 도구를 한국어로 보기',
       rgn: { head: '[Region to edit]', ver: 'Deck version', slide: 'Slide', id: 'Slide ID', sel: 'Selector', type: 'Type', cur: 'Current content', ctx: 'Context', pos: 'Position', w: 'width', h: 'height', ask: 'Request', img: 'image', svg: 'chart element', box: 'text/block', txt: 'text', noAlt: 'image without alt', none: 'empty region' }
@@ -178,10 +182,14 @@
     btn('rv-fbToggle', T.fbClose, { 'aria-pressed': 'true', 'aria-controls': 'rv-panel' }),
     ...(cfg.langSwitch !== false ? [btn('rv-lang', T.langBtn, { title: T.langTo, 'aria-label': T.langTo, lang: LANG === 'ko' ? 'en' : 'ko' })] : [])
   );
-  const dialog = h('dialog', { id: 'rv-clearDialog', 'aria-labelledby': 'rv-clearTitle' },
+  const dialog = h('dialog', { id: 'rv-clearDialog', class: 'rv-dialog', 'aria-labelledby': 'rv-clearTitle' },
     h('h2', { id: 'rv-clearTitle', text: T.clearTitle }), h('p', { id: 'rv-clearDesc' }), h('p', { id: 'rv-clearNote' }), h('p', { id: 'rv-clearError', role: 'alert' }),
     h('div', { class: 'rv-dialog-actions' }, btn('rv-cancelClear', T.cancel), btn('rv-confirmClear', T.confirmClear, { class: 'rv-danger rv-primary' })));
-  doc.body.append(panel, controls, dialog, h('div', { class: 'rv-sr', id: 'rv-announce', 'aria-live': 'polite' }), h('div', { class: 'rv-toast', id: 'rv-toast', role: 'status', 'aria-live': 'polite' }));
+  const pdfDialog = h('dialog', { id: 'rv-printDialog', class: 'rv-dialog', 'aria-labelledby': 'rv-printTitle' },
+    h('h2', { id: 'rv-printTitle', text: T.pdfTitle }), h('div', { html: T.pdfBody }),
+    h('label', { class: 'rv-check' }, h('input', { type: 'checkbox', id: 'rv-printSkip' }), doc.createTextNode(' ' + T.pdfSkip)),
+    h('div', { class: 'rv-dialog-actions' }, btn('rv-cancelPrint', T.cancel), btn('rv-openPrint', T.pdfOpen, { class: 'rv-primary' })));
+  doc.body.append(panel, controls, dialog, pdfDialog, h('div', { class: 'rv-sr', id: 'rv-announce', 'aria-live': 'polite' }), h('div', { class: 'rv-toast', id: 'rv-toast', role: 'status', 'aria-live': 'polite' }));
   let pageRule = doc.getElementById('rv-pagerule'); if (!pageRule) { pageRule = h('style', { id: 'rv-pagerule' }); doc.head.append(pageRule); }
 
   // ---------- state ----------
@@ -281,7 +289,12 @@
     root.style.setProperty('--rv-print-scale', String(sc)); root.style.setProperty('--rv-print-top', top + 'mm'); root.style.setProperty('--rv-print-left', left + 'mm');
     pageRule.textContent = `@page{size:${pw}mm ${ph}mm;margin:0}`;
   }
-  $('print').onclick = () => { const b = $('print'); b.disabled = true; toast(T.printToast); printMode(); setTimeout(() => window.print(), 300); setTimeout(() => { b.disabled = false; }, 3000); };
+  // A page cannot pick the print destination, so explain "Save as PDF" before the browser's print dialog opens.
+  const PRINTSKIP = 'deck-review.printGuide.hidden';
+  const openPrint = () => { const b = $('print'); b.disabled = true; toast(T.printToast); printMode(); setTimeout(() => window.print(), 300); setTimeout(() => { b.disabled = false; }, 3000); };
+  $('print').onclick = () => { let skip = false; try { skip = localStorage.getItem(PRINTSKIP) === '1'; } catch {} if (skip) openPrint(); else { $('printSkip').checked = false; $('printDialog').showModal(); $('openPrint').focus(); } };
+  $('cancelPrint').onclick = () => $('printDialog').close();
+  $('openPrint').onclick = () => { if ($('printSkip').checked) { try { localStorage.setItem(PRINTSKIP, '1'); } catch {} } $('printDialog').close(); openPrint(); };
   addEventListener('beforeprint', printMode);
   async function full() { try { if (doc.fullscreenElement) await doc.exitFullscreen(); else await root.requestFullscreen(); } catch { toast(T.noFull); } }
   $('full').onclick = full;
@@ -408,7 +421,7 @@
   $('regionMode').onclick = () => setAreaMode(!areaMode);
   $('copyRegion').onclick = async () => { if (selectedRegion) toast(await copyText(selectedRegion.text) ? T.copied : T.copyFail); };
   slides.forEach((slide, i) => slide.addEventListener('click', async e => {
-    if (!areaMode || busy || clearDialog.open || root.classList.contains('rv-fb-hidden') || root.classList.contains('rv-overview')) return;
+    if (!areaMode || busy || clearDialog.open || $('printDialog').open || root.classList.contains('rv-fb-hidden') || root.classList.contains('rv-overview')) return;
     const el = targetRegion(e.target, slide); if (!el) return;
     e.preventDefault(); e.stopPropagation(); if (index !== i) go(i);
     const info = describeRegion(el, slide, i);
@@ -420,6 +433,7 @@
   // ---------- keyboard & lifecycle ----------
   doc.addEventListener('keydown', e => {
     const mod = e.ctrlKey || e.metaKey;
+    if ($('printDialog').open) return;
     if (clearDialog.open) { if (mod && e.key.toLowerCase() === 's') e.preventDefault(); return; }
     if (mod && e.key.toLowerCase() === 's') { e.preventDefault(); saveFeedback(); return; }
     const a = doc.activeElement; if (/INPUT|SELECT|TEXTAREA|BUTTON/.test(a.tagName) || a.isContentEditable || mod || e.altKey) return;

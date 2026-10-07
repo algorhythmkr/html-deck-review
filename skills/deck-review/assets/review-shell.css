@@ -1,4 +1,4 @@
-/*! html-deck-review shell v1.2.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin Cho <contact@algorhythm.kr> */
+/*! html-deck-review shell v1.3.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin Cho <contact@algorhythm.kr> */
 :root{--rv-brand:#2350a8;--rv-ink:#1f2430;--rv-muted:#6b7280;--rv-paper:#fbfbfd;--rv-line:#e3e6ec;--rv-soft:#eef2f8;--rv-deep:#1b2236;--rv-danger:#a31d37;--rv-bg:#e5e7ec;--rv-panel:420px;--rv-toolbar:66px;--rv-scale:1;--rv-w:1280px;--rv-h:720px;--rv-print-w:338.667mm;--rv-print-h:190.5mm;--rv-print-scale:1;--rv-print-top:0mm;--rv-print-left:0mm}
 html.rv-on,html.rv-on body{margin:0;min-height:100%;background:var(--rv-bg)}
 html.rv-on body{overflow:hidden}
@@ -15,14 +15,14 @@ html.rv-on .rv-legacy{display:contents!important}
 .rv-picked{outline:3px solid #e07b2a!important;outline-offset:3px!important}
 
 /* shared control look (scoped to shell chrome only) */
-.rv-panel,.rv-controls,#rv-clearDialog,.rv-toast{font-family:system-ui,-apple-system,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--rv-ink);box-sizing:border-box}
-.rv-panel *,.rv-controls *,#rv-clearDialog *{box-sizing:border-box}
-.rv-panel button,.rv-panel select,.rv-controls button,.rv-controls select,#rv-clearDialog button{font:inherit;min-height:40px;border:1px solid #cfd4dd;background:#fff;color:var(--rv-ink);border-radius:6px;padding:8px 12px;font-size:14px;cursor:pointer}
-.rv-panel button:hover,.rv-controls button:hover,#rv-clearDialog button:hover{border-color:var(--rv-brand);background:var(--rv-soft)}
-.rv-panel button:disabled,.rv-controls button:disabled,#rv-clearDialog button:disabled{opacity:.4;cursor:default}
-.rv-panel .rv-primary,.rv-controls .rv-primary{background:var(--rv-brand);border-color:var(--rv-brand);color:#fff}
-.rv-panel .rv-primary:hover,.rv-controls .rv-primary:hover{background:var(--rv-brand);filter:brightness(1.1)}
-.rv-panel :focus-visible,.rv-controls :focus-visible,#rv-clearDialog :focus-visible{outline:3px solid var(--rv-brand);outline-offset:3px}
+.rv-panel,.rv-controls,.rv-dialog,.rv-toast{font-family:system-ui,-apple-system,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--rv-ink);box-sizing:border-box}
+.rv-panel *,.rv-controls *,.rv-dialog *{box-sizing:border-box}
+.rv-panel button,.rv-panel select,.rv-controls button,.rv-controls select,.rv-dialog button{font:inherit;min-height:40px;border:1px solid #cfd4dd;background:#fff;color:var(--rv-ink);border-radius:6px;padding:8px 12px;font-size:14px;cursor:pointer}
+.rv-panel button:hover,.rv-controls button:hover,.rv-dialog button:hover{border-color:var(--rv-brand);background:var(--rv-soft)}
+.rv-panel button:disabled,.rv-controls button:disabled,.rv-dialog button:disabled{opacity:.4;cursor:default}
+.rv-panel .rv-primary,.rv-controls .rv-primary,.rv-dialog .rv-primary{background:var(--rv-brand);border-color:var(--rv-brand);color:#fff}
+.rv-panel .rv-primary:hover,.rv-controls .rv-primary:hover,.rv-dialog .rv-primary:hover{background:var(--rv-brand);filter:brightness(1.1)}
+.rv-panel :focus-visible,.rv-controls :focus-visible,.rv-dialog :focus-visible{outline:3px solid var(--rv-brand);outline-offset:3px}
 .rv-danger{color:var(--rv-danger)!important;border-color:#d69aa6!important}
 button.rv-danger.rv-primary{background:var(--rv-danger)!important;border-color:var(--rv-danger)!important;color:#fff!important}
 
@@ -60,12 +60,13 @@ button.rv-danger.rv-primary{background:var(--rv-danger)!important;border-color:v
 .rv-print-note{font-size:13px;color:var(--rv-muted)}
 
 /* dialog, toast, a11y */
-#rv-clearDialog{width:min(510px,92vw);border:1px solid var(--rv-line);border-radius:12px;padding:25px;background:var(--rv-paper);box-shadow:0 14px 60px #1b223640}
-#rv-clearDialog::backdrop{background:#1b223680}
-#rv-clearDialog h2{font-size:21px;margin:0 0 16px}
-#rv-clearDialog p{font-size:15px;line-height:1.65}
+.rv-dialog{width:min(510px,92vw);border:1px solid var(--rv-line);border-radius:12px;padding:25px;background:var(--rv-paper);box-shadow:0 14px 60px #1b223640}
+.rv-dialog::backdrop{background:#1b223680}
+.rv-dialog h2{font-size:21px;margin:0 0 16px}
+.rv-dialog p{font-size:15px;line-height:1.65}
 #rv-clearNote{background:var(--rv-soft);padding:12px;border-radius:6px}
 #rv-clearError{color:var(--rv-danger);min-height:24px}
+.rv-dialog ol{padding-left:22px;margin:0 0 12px;font-size:15px;line-height:1.65}.rv-dialog li{margin-bottom:6px}.rv-dialog .rv-warn{background:#fdf1f3;border-left:4px solid var(--rv-danger);padding:10px 12px;border-radius:4px}.rv-dialog .rv-check{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--rv-muted);margin-top:6px}.rv-dialog .rv-check input{width:16px;height:16px;min-height:0}
 .rv-dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
 .rv-toast{position:fixed;bottom:calc(var(--rv-toolbar) + 14px);left:24px;max-width:calc(100vw - 48px);padding:13px 18px;background:var(--rv-deep);color:#fff;border-radius:6px;z-index:20;font-size:14px;line-height:1.6;box-shadow:0 5px 24px #1b223633}
 .rv-toast:empty{display:none}
@@ -85,7 +86,7 @@ button.rv-danger.rv-primary{background:var(--rv-danger)!important;border-color:v
 /* print / PDF: one slide per page, chrome hidden */
 @media print{
   html.rv-on,html.rv-on body{background:#fff!important;width:var(--rv-print-w);height:auto!important;overflow:visible!important;margin:0!important;padding:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .rv-panel,.rv-controls,.rv-toast,.rv-sr,#rv-clearDialog{display:none!important}
+  .rv-panel,.rv-controls,.rv-toast,.rv-sr,.rv-dialog{display:none!important}
   #rv-deck{position:static!important;inset:auto!important;display:block!important;width:var(--rv-print-w)!important;height:auto!important;overflow:visible!important;padding:0!important;margin:0!important}
   .rv-sheet,.rv-overview .rv-sheet{display:block!important;width:var(--rv-print-w)!important;height:var(--rv-print-h)!important;margin:0!important;box-shadow:none!important;outline:none!important;break-after:page;page-break-after:always;overflow:hidden!important;position:relative!important}
   .rv-sheet:last-child{break-after:auto;page-break-after:auto}
