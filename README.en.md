@@ -59,7 +59,7 @@ The deck stays a single HTML file, and feedback lives only in the reviewer's bro
 4. Click **Save** to create the PDF file.
 
 > **The PDF only comes out right with “Save as PDF”.**
-> Other printers, such as Microsoft Print to PDF or third-party PDF printers, change the page size and margins, so slides get cut off or shifted.
+> Other printers, such as Microsoft Print to PDF or third-party PDF printers, change the page size and margins, so slides may come out in portrait orientation or not fit the PDF page.
 
 A web page cannot change the default printer of the browser's print dialog, so the deck shows a short guide asking you to pick “Save as PDF” before the dialog opens. Chrome and Edge remember “Save as PDF” once you have chosen it, so you only need to switch it the first time. You can turn the guide off with “Don’t show this again”.
 
