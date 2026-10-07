@@ -87,11 +87,35 @@ If the browser is not found automatically, set `DECK_REVIEW_BROWSER` to its exec
 
 ## Usage
 
-Ask Claude Code things like:
+Two sentences in Claude Code are all you need.
 
-- “Add a feedback panel and toolbar to `pitch_v1.0.html`”
+**1. Once: turn your deck into a review copy with the skill**
+
+```
+Rebuild IR_v1.0.html with the /deck-review skill
+```
+
+The feedback panel and toolbar are added to your existing deck. Send this file to your reviewers; they open it in a browser, leave notes and save them as `IR_v1.0_feedback.json`. Put the returned JSON in the same folder as the HTML.
+
+**2. Apply the feedback**
+
+```
+Apply the feedback to IR_v1.0.html and update it
+```
+
+A new version, **`IR_v1.1.html`**, is created from the v1.0 notes only. It already includes the feedback panel, so you can send it straight back to your reviewers.
+
+**From then on, repeat the same sentence.**
+
+You only call the `/deck-review` skill once. After every review round, just repeat the line below and the deck moves on to v1.2, v1.3 and so on.
+
+```
+Apply the feedback and update it
+```
+
+You can also ask for things like:
+
 - “Install the review tools in English; the reviewers are US investors”
-- “Apply `pitch_v1.0_feedback.json` and make v1.1”
 - “Export this deck to PDF and check for overflowing text”
 
 Or run the scripts yourself:
