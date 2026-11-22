@@ -150,6 +150,14 @@ skills/deck-review/
 examples/                  a deck without the shell, and the installed result
 ```
 
+## What it runs and sends
+
+This plugin sends and receives nothing over the network and collects no personal data. It has no hooks, no MCP servers and no background processes.
+
+- **The shell inlined into a deck (`review-shell.css` / `.js`)** runs only in the reviewer's browser. Feedback is stored in that browser's localStorage, sessionStorage and IndexedDB (for the linked file handle), and in a JSON file the reviewer picks. Clicking a region inserts its content into the feedback box, or copies it to the clipboard when `pickInsert` is `false`. It loads no external scripts, fonts or analytics.
+- **The scripts (`scripts/*.py`)** are run locally by Claude when you ask for it. They use only the Python standard library, read the deck HTML and feedback JSON you name, and write new HTML, PDF and backup files. `check_deck.py` and `export_pdf.py` start your installed Chrome, Edge or Chromium headless and open only the local HTML file, with a temporary browser profile that is removed afterwards.
+- It installs or downloads no packages, reads no credentials from your environment and changes no permission settings. The only environment variables it reads are `DECK_REVIEW_BROWSER` and `CHROME_PATH`, the browser executable path.
+
 ## Author and copyright
 
 - Author: jmcho

@@ -148,6 +148,14 @@ skills/deck-review/
 examples/                  셸 없는 원본과 설치 결과
 ```
 
+## 실행하는 것과 보내는 것
+
+이 플러그인은 네트워크로 아무것도 보내거나 받지 않고, 개인정보를 모으지 않습니다. 훅(hook)·MCP 서버·백그라운드 프로그램도 없습니다.
+
+- **덱에 넣는 셸(`review-shell.css` / `.js`)**: 검토자의 브라우저 안에서만 동작합니다. 피드백은 그 브라우저의 localStorage·sessionStorage·IndexedDB(연결한 파일 핸들)와, 검토자가 직접 고른 JSON 파일에만 저장됩니다. 영역을 클릭하면 그 내용을 피드백 칸에 넣고, `pickInsert: false`일 때는 클립보드에 복사합니다. 외부 스크립트·글꼴·분석 도구를 불러오지 않습니다.
+- **스크립트(`scripts/*.py`)**: Claude가 사용자의 요청을 받아 로컬에서 실행합니다. Python 표준 라이브러리만 쓰며, 지정한 덱 HTML과 피드백 JSON을 읽고 새 HTML·PDF·백업 파일을 씁니다. `check_deck.py`와 `export_pdf.py`는 설치된 Chrome·Edge·Chromium을 headless로 실행해 로컬 HTML 파일만 엽니다. 브라우저 프로필은 임시 폴더에 만들고 작업이 끝나면 지웁니다.
+- 패키지 설치·다운로드, 환경 변수에 있는 인증 정보 읽기, 권한 설정 변경을 하지 않습니다. 환경 변수는 브라우저 실행 파일 경로를 지정하는 `DECK_REVIEW_BROWSER`와 `CHROME_PATH`만 읽습니다.
+
 ## 만든 사람과 저작권
 
 - 만든 사람: jmcho
