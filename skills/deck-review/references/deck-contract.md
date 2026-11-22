@@ -51,6 +51,7 @@
 | `storageKey` | `deck-review.{deckId}.{version}.feedback.v1` | 브라우저 저장 키 템플릿. 버전마다 달라서 새 버전은 빈 피드백 창으로 시작 |
 | `panelOpen` | `true` | 시작 시 피드백 창 열림 여부. URL에 `?present`를 붙이면 닫힌 채 시작 |
 | `regionPick` | `true` | 영역 선택 기본 켜짐 |
+| `pickInsert` | `true` | 클릭한 영역 정보를 피드백 칸에 바로 넣음. `false`이면 클립보드 복사만(`apply_shell.py --no-pick-insert`) |
 | `print.size` | `16:9` | `16:9`(슬라이드 크기 그대로) / `a4`(가로, 여백 맞춤) |
 | `print.note` | 자동 | 인쇄 버튼 옆 안내 문구 |
 | `pickIgnore` | `[data-no-pick]`, 링크·버튼·입력 | 클릭해도 선택되지 않는 요소 |

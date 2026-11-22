@@ -18,7 +18,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ASSETS = HERE.parent / "assets"
-SHELL_VERSION = "1.3.0"
+SHELL_VERSION = "1.4.0"
 
 
 def block(name, body):
@@ -192,6 +192,7 @@ def main():
     ap.add_argument("--print-size", choices=["16:9", "a4"]); ap.add_argument("--slide-selector")
     ap.add_argument("--slide-size", help="WxH in px, e.g. 1280x720"); ap.add_argument("--panel-guide")
     ap.add_argument("--panel-closed", action="store_true", help="start with the feedback panel closed")
+    ap.add_argument("--no-pick-insert", action="store_true", help="clicking a region only copies it to the clipboard instead of inserting it into the feedback box")
     ap.add_argument("--no-lang-switch", action="store_true", help="hide the KO/EN switch in the toolbar (UI stays in --lang)")
     ap.add_argument("--lang-switch", action="store_true", help="show the KO/EN switch again after --no-lang-switch")
     ap.add_argument("--no-strip-legacy", action="store_true")
@@ -231,6 +232,7 @@ def main():
     if a.slide_size:
         w, h = (int(x) for x in a.slide_size.lower().split("x")); cfg["slideWidth"], cfg["slideHeight"] = w, h
     if a.panel_closed: cfg["panelOpen"] = False
+    if a.no_pick_insert: cfg["pickInsert"] = False
     if a.no_lang_switch: cfg["langSwitch"] = False
     if a.lang_switch: cfg["langSwitch"] = True
     cfg.setdefault("lang", "auto"); cfg.setdefault("langSwitch", True); cfg.setdefault("slideSelector", ".slide")

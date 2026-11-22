@@ -6,15 +6,15 @@
   },
   "metadata": {
     "description": "Algorhythm Inc. Claude Code plugins. html-deck-review: review tools for existing HTML pitch/IR decks.",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
       "name": "html-deck-review",
       "source": "./",
-      "description": "Review tools for HTML pitch/IR decks you already have: per-slide feedback panel with click-to-select regions, version-scoped feedback JSON, and a workflow that applies that version's feedback to the next version. Korean/English UI. Does not create decks.",
+      "description": "Review tools for HTML pitch/IR decks you already have: per-slide feedback panel where clicking any text, image or chart drops its content and position straight into the feedback box, version-scoped feedback JSON, and a workflow that applies that version's feedback to the next version. Korean/English UI. Does not create decks.",
       "author": {
-        "name": "Jaemin",
+        "name": "jmcho",
         "email": "contact@algorhythm.kr"
       }
     }

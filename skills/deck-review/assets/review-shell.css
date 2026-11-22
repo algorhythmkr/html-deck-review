@@ -1,4 +1,4 @@
-/*! html-deck-review shell v1.3.0 | MIT | (c) 2026 Algorhythm Inc. | Jaemin <contact@algorhythm.kr> */
+/*! html-deck-review shell v1.4.0 | MIT | (c) 2026 Algorhythm Inc. | jmcho <contact@algorhythm.kr> */
 :root{--rv-brand:#2350a8;--rv-ink:#1f2430;--rv-muted:#6b7280;--rv-paper:#fbfbfd;--rv-line:#e3e6ec;--rv-soft:#eef2f8;--rv-deep:#1b2236;--rv-danger:#a31d37;--rv-bg:#e5e7ec;--rv-panel:420px;--rv-toolbar:66px;--rv-scale:1;--rv-w:1280px;--rv-h:720px;--rv-print-w:338.667mm;--rv-print-h:190.5mm;--rv-print-scale:1;--rv-print-top:0mm;--rv-print-left:0mm}
 html.rv-on,html.rv-on body{margin:0;min-height:100%;background:var(--rv-bg)}
 html.rv-on body{overflow:hidden}

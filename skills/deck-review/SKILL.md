@@ -1,6 +1,6 @@
 ---
 name: deck-review
-description: 이미 만든 HTML 슬라이드 덱(사업계획서·IR·발표자료)을 검토하고 피드백을 주고받는 스킬(덱을 새로 만들지 않는다). 덱에 슬라이드별 피드백 창과 하단 메뉴(이전/다음·슬라이드 이동·전체 보기·전체 화면·인쇄/PDF)를 설치·갱신하고, 검토자가 남긴 버전별 피드백 JSON(덱_v1.1_feedback.json)을 읽어 그 버전의 의견만 반영한 다음 버전 파일을 만든다. headless 레이아웃 검수와 16:9 벡터 PDF 출력 포함. "피드백 창 넣어줘", "하단 메뉴/PDF 버튼 달아줘", "피드백 반영해줘", "v1.1 피드백 반영", "다음 버전으로 수정", "add a feedback panel to this deck", "apply reviewer feedback", "review tools in English", "영문 피드백 창" 요청 시 사용.
+description: 이미 만든 HTML 슬라이드 덱(사업계획서·IR·발표자료)을 검토하고 피드백을 주고받는 스킬(덱을 새로 만들지 않는다). 덱에 슬라이드별 피드백 창과 하단 메뉴(이전/다음·슬라이드 이동·전체 보기·전체 화면·인쇄/PDF)를 설치·갱신하고(슬라이드의 글자·이미지·도표를 클릭하면 그 내용과 위치가 피드백 칸에 바로 채워진다), 검토자가 남긴 버전별 피드백 JSON(덱_v1.1_feedback.json)을 읽어 그 버전의 의견만 반영한 다음 버전 파일을 만든다. headless 레이아웃 검수와 16:9 벡터 PDF 출력 포함. "피드백 창 넣어줘", "하단 메뉴/PDF 버튼 달아줘", "피드백 반영해줘", "v1.1 피드백 반영", "다음 버전으로 수정", "add a feedback panel to this deck", "apply reviewer feedback", "review tools in English", "영문 피드백 창" 요청 시 사용.
 argument-hint: [덱 HTML 경로] [피드백 JSON 경로(선택)]
 ---
 

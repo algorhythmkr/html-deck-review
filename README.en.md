@@ -42,7 +42,7 @@ deck_v1.0.html ──review──▶ deck_v1.0_feedback.json ──apply──�
 | Feature | Description |
 |---|---|
 | Feedback panel | A note per slide · autosaved in the browser · saved to a JSON file (Chrome/Edge keep updating the same file) · JSON/TXT export · import and merge · clear all |
-| Region pick | Click any text, image or chart on a slide to copy its selector, current content and original coordinates to the clipboard. No more describing *where* to edit |
+| Click to fill feedback | Click any text, image or chart on a slide and its current content, selector and original coordinates drop straight into the feedback box, with the caret placed after “Request:”. Click several regions to stack them in one note. No describing *where* to edit, no copy and paste |
 | Version-scoped feedback | Each HTML version gets its own feedback file (`deck_v1.1_feedback.json`). A new version starts with an empty panel, and an update applies only that version's notes |
 | Toolbar | ← → · jump to slide · overview · fullscreen (F) · print/PDF (16:9 or A4, borderless vector) · show/hide feedback · language switch |
 | Korean / English | The review tools come in Korean and English. Reviewers can switch with the `EN` / `한국어` button in the toolbar |
@@ -152,7 +152,7 @@ examples/                  a deck without the shell, and the installed result
 
 ## Author and copyright
 
-- Author: Jaemin
+- Author: jmcho
 - Copyright: © 2026 Algorhythm Inc.
 - Contact: [contact@algorhythm.kr](mailto:contact@algorhythm.kr)
 
